@@ -36,10 +36,16 @@ body {
     border: 3px solid #333;
     border-radius: 50%;
     background-color: #ccc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: #666;
 }
 
 .circle.active {
     background-color: #333;
+    color: white;
 }
 
 .buttons {
