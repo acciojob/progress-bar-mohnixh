@@ -28,16 +28,16 @@ body {
 .circles {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     padding-inline: 20px;
     padding-block: 15px;
     width: 250px;
+    min-height: 60px;
 }
 
 .circle {
-    display: inline-block;
     border: 2px solid black;
     border-radius: 50%;
-    color: whitesmoke;
     background-color: darkgray;
     width: 40px;
     height: 40px;
