@@ -1,75 +1,46 @@
-* {
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
-}
+const nextBtn = document.querySelector('#next');
+const prevBtn = document.querySelector('#prev');
+const circles = document.querySelectorAll('.circle-child');
+let activeIndex = 0;
 
+// Set initial state
+prevBtn.disabled = true;
+circles[0].classList.add('active');
 
-body {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    /* height: 100%;
-    width: 100%; */
-    min-height: 100vh;
-    min-width: 100vw;
-}
+nextBtn.addEventListener('click', function () {
+    console.log('nxtClicked');
+    
+    if (activeIndex < circles.length - 1) {
+        activeIndex++;
+        
+        // Add active class to current circle
+        circles[activeIndex].classList.add('active');
+        
+        // Enable prev button
+        prevBtn.disabled = false;
+        
+        // Disable next button if at the end
+        if (activeIndex === circles.length - 1) {
+            nextBtn.disabled = true;
+        }
+    }
+});
 
-.main {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    /* width: 100%;
-    height: 100%; */
-}
-
-.outer-wrapper {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    text-align: center;
-}
-
-.circles {
-    display: flex;
-    justify-content: space-between;
-    /* gap: 10px; */
-    /* border: 2px solid black; */
-    padding-inline: 20px;
-    padding-block: 15px;
-    width: 250px;
-}
-
-.circle-child {
-    border: 2px solid black;
-    border-radius: 50px;
-    padding: 20px;
-    color: whitesmoke;
-    background-color: darkgray;
-}
-
-.buttons {
-    display: flex;
-    justify-content: space-between;
-    width: 200px;
-}
-
-#prev {
-    /* background-color: aqua; */
-    padding: 10px;
-    border-radius: 40px;
-    color: whitesmoke;
-    background-color: rgb(72, 121, 161);
-
-
-}
-
-#next {
-    /* background-color: aqua; */
-    padding: 10px;
-    border-radius: 40px;
-    color: whitesmoke;
-
-    background-color: rgb(72, 121, 161);
-
-}
+prevBtn.addEventListener('click', function () {
+    console.log('prvClicked');
+    
+    if (activeIndex > 0) {
+        // Remove active class from current circle
+        circles[activeIndex].classList.remove('active');
+        
+        activeIndex--;
+        
+        // Enable next button
+        nextBtn.disabled = false;
+        
+        // Disable prev button if at the start
+        if (activeIndex === 0) {
+            prevBtn.disabled = true;
+        }
+    }
+});
