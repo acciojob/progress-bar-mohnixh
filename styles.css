@@ -1,7 +1,6 @@
 * {
-    box-sizing: border-box;
-    padding: 0;
     margin: 0;
+    padding: 0;
 }
 
 body {
@@ -29,19 +28,17 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-inline: 20px;
-    padding-block: 15px;
-    width: 250px;
-    min-height: 60px;
+    gap: 10px;
+    padding: 20px;
 }
 
 .circle {
+    width: 40px;
+    height: 40px;
     border: 2px solid black;
     border-radius: 50%;
     background-color: darkgray;
-    width: 40px;
-    height: 40px;
-    flex-shrink: 0;
+    box-sizing: content-box;
 }
 
 .circle.active {
@@ -51,23 +48,17 @@ body {
 .buttons {
     display: flex;
     justify-content: space-between;
-    width: 200px;
+    gap: 20px;
+    margin-top: 20px;
 }
 
-#prev {
-    padding: 10px;
+#prev, #next {
+    padding: 10px 20px;
     border-radius: 40px;
     color: whitesmoke;
     background-color: rgb(72, 121, 161);
     cursor: pointer;
-}
-
-#next {
-    padding: 10px;
-    border-radius: 40px;
-    color: whitesmoke;
-    background-color: rgb(72, 121, 161);
-    cursor: pointer;
+    border: none;
 }
 
 button:disabled {
