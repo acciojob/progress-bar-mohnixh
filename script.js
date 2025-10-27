@@ -1,41 +1,46 @@
 const nextBtn = document.querySelector('#next');
 const prevBtn = document.querySelector('#prev');
-const circles = document.querySelectorAll('.circle-child');
-
+const circles = document.querySelectorAll('.circle');
 let activeIndex = 0;
+
+// Set initial state
+prevBtn.disabled = true;
+circles[0].classList.add('active');
 
 nextBtn.addEventListener('click', function () {
     console.log('nxtClicked');
     
-    if (activeIndex < circles.length) {
-        circles[activeIndex].style.backgroundColor = 'black';
-        prevBtn.disabled = false
-        prevBtn.style.backgroundColor = ' rgba(186, 25, 25, 1)'
-
+    if (activeIndex < circles.length - 1) {
+        activeIndex++;
+        
+        // Add active class to current circle
+        circles[activeIndex].classList.add('active');
+        
+        // Enable prev button
+        prevBtn.disabled = false;
+        
+        // Disable next button if at the end
         if (activeIndex === circles.length - 1) {
             nextBtn.disabled = true;
-            nextBtn.style.backgroundColor = 'rgba(186, 25, 25, 1)'
         }
-        activeIndex++;
     }
 });
 
 prevBtn.addEventListener('click', function () {
     console.log('prvClicked');
-
+    
     if (activeIndex > 0) {
+        // Remove active class from current circle
+        circles[activeIndex].classList.remove('active');
+        
         activeIndex--;
-        circles[activeIndex].style.backgroundColor = 'gray';
-
-        if (activeIndex < circles.length) {
-            nextBtn.style.backgroundColor = '';
-            nextBtn.disabled = false;
-        }
-
-        if(activeIndex === 0){
+        
+        // Enable next button
+        nextBtn.disabled = false;
+        
+        // Disable prev button if at the start
+        if (activeIndex === 0) {
             prevBtn.disabled = true;
-            prevBtn.style.backgroundColor = 'gray'
         }
-
     }
 });
