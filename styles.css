@@ -1,1 +1,75 @@
-/*  your css code here. If applicable */
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* height: 100%;
+    width: 100%; */
+    min-height: 100vh;
+    min-width: 100vw;
+}
+
+.main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* width: 100%;
+    height: 100%; */
+}
+
+.outer-wrapper {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+.circles {
+    display: flex;
+    justify-content: space-between;
+    /* gap: 10px; */
+    /* border: 2px solid black; */
+    padding-inline: 20px;
+    padding-block: 15px;
+    width: 250px;
+}
+
+.circle-child {
+    border: 2px solid black;
+    border-radius: 50px;
+    padding: 20px;
+    color: whitesmoke;
+    background-color: darkgray;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-between;
+    width: 200px;
+}
+
+#prev {
+    /* background-color: aqua; */
+    padding: 10px;
+    border-radius: 40px;
+    color: whitesmoke;
+    background-color: rgb(72, 121, 161);
+
+
+}
+
+#next {
+    /* background-color: aqua; */
+    padding: 10px;
+    border-radius: 40px;
+    color: whitesmoke;
+
+    background-color: rgb(72, 121, 161);
+
+}
